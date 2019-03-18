@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot name="mir_vehicle_sensors_loader">
+
+<xacro:include filename="$(find mir_vehicle_description)/urdf/$(arg urdf_model)_sensors.urdf.xacro"/>
+
+</robot>

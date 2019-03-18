@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<launch>
+  
+<arg name="world" default="autodrive"/>
+
+<include file="$(find mir_vehicle_gazebo)/launch/bulldogbolt_$(arg world).launch" />
+
+<!-- start gazebo client -->
+<node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen"/>
+
+<!-- start rviz -->
+<arg name="gui" default="true" />
+<arg name="rvizconfig" default="$(find mir_vehicle_gazebo)/launch/bulldogbolt_gazebo.rviz" />
+<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+<node name = "cmdvel2gazebo" pkg = "mir_vehicle" type = "cmdvel2gazebo.py"/>
+
+<include file="$(find mir_vehicle_gazebo)/launch/joystick.launch"/>
+
+</launch>
