@@ -4,6 +4,11 @@
 devel/
 build/
 
+# RoboWareStudio Files
+.ycm_extra_conf.py
+devel_isolated/
+el/
+el_isolated
 
 logs/
 
